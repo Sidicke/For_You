@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Romantique Interactive</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.romantic-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: pageEntrance 1.5s ease-out;
+}
+
+@keyframes pageEntrance {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Fond dégradé animé */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        #ffeef8 0%,
+        #ffb3d9 25%,
+        #ff99cc 50%,
+        #ffb3d9 75%,
+        #ffeef8 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    z-index: -3;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Overlay lumineux */
+.light-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -2;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+/* Contenu principal */
+.main-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Container des peluches */
+.plushies-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plushies-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 100px;
+}
+
+/* Styles des peluches avec animations */
+.plushie {
+    position: relative;
+    transform-origin: center bottom;
+    animation: plushieEntrance 1s ease-out 0.5s both;
+}
+
+@keyframes plushieEntrance {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    50% { transform: scale(1.2) rotate(-90deg); opacity: 0.8; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.plushie-body {
+    position: relative;
+}
+
+/* Animation de câlin pour les peluches */
+.bear {
+    animation: plushieEntrance 1s ease-out 0.5s both, hugAnimation 10s ease-in-out 3s infinite;
+}
+
+.bunny {
+    animation: plushieEntrance 1s ease-out 0.7s both, hugAnimationReverse 10s ease-in-out 3s infinite;
+}
+
+@keyframes hugAnimation {
+    0%, 100% { transform: translateX(0) scale(1); }
+    20%, 80% { transform: translateX(60px) scale(1.1); }
+    50% { transform: translateX(60px) scale(1.15); }
+}
+
+@keyframes hugAnimationReverse {
+    0%, 100% { transform: translateX(0) scale(1); }
+    20%, 80% { transform: translateX(-60px) scale(1.1); }
+    50% { transform: translateX(-60px) scale(1.15); }
+}
+
+/* Ours en peluche */
+.bear .bear-head {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #8B4513, #A0522D);
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto 10px;
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+    animation: bobbing 3s ease-in-out infinite;
+}
+
+@keyframes bobbing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.bear .bear-ears {
+    position: absolute;
+    top: -20px;
+    width: 100%;
+}
+
+.bear .bear-ears .ear {
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(145deg, #8B4513, #A0522D);
+    border-radius: 50%;
+    position: absolute;
+    animation: earWiggle 4s ease-in-out infinite;
+}
+
+@keyframes earWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+.bear .bear-ears .ear:first-child {
+    left: 10px;
+}
+
+.bear .bear-ears .ear:last-child {
+    right: 10px;
+}
+
+.bear .bear-face {
+    position: relative;
+    padding-top: 20px;
+}
+
+.bear .eye {
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 25px;
+    animation: blink 3s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+.bear .eye:first-child {
+    left: 20px;
+}
+
+.bear .eye:last-child {
+    right: 20px;
+}
+
+.bear .nose {
+    width: 6px;
+    height: 6px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bear .mouth {
+    width: 15px;
+    height: 8px;
+    border: 2px solid #000;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    position: absolute;
+    top: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bear .bear-body {
+    width: 60px;
+    height: 70px;
+    background: linear-gradient(145deg, #8B4513, #A0522D);
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+}
+
+.bear .arm {
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(145deg, #8B4513, #A0522D);
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    animation: armWave 4s ease-in-out infinite;
+}
+
+@keyframes armWave {
+    0%, 100% { transform: rotate(-20deg); }
+    50% { transform: rotate(-10deg); }
+}
+
+.bear .arm.left {
+    left: -15px;
+}
+
+.bear .arm.right {
+    right: -15px;
+    transform: rotate(20deg);
+    animation: armWaveRight 4s ease-in-out infinite;
+}
+
+@keyframes armWaveRight {
+    0%, 100% { transform: rotate(20deg); }
+    50% { transform: rotate(10deg); }
+}
+
+/* Lapin en peluche */
+.bunny .bunny-head {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(145deg, #f8f8ff, #e6e6fa);
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto 10px;
+    box-shadow: 0 8px 20px rgba(230, 230, 250, 0.4);
+    animation: bobbing 2.5s ease-in-out infinite;
+}
+
+.bunny .bunny-ears {
+    position: absolute;
+    top: -35px;
+    width: 100%;
+}
+
+.bunny .bunny-ears .ear {
+    width: 15px;
+    height: 40px;
+    background: linear-gradient(145deg, #f8f8ff, #e6e6fa);
+    border-radius: 15px 15px 50% 50%;
+    position: absolute;
+    animation: bunnyEarWiggle 3s ease-in-out infinite;
+}
+
+@keyframes bunnyEarWiggle {
+    0%, 100% { transform: rotate(-15deg); }
+    50% { transform: rotate(-5deg); }
+}
+
+.bunny .bunny-ears .ear:first-child {
+    left: 15px;
+}
+
+.bunny .bunny-ears .ear:last-child {
+    right: 15px;
+    animation: bunnyEarWiggleRight 3s ease-in-out infinite;
+}
+
+@keyframes bunnyEarWiggleRight {
+    0%, 100% { transform: rotate(15deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.bunny .bunny-face {
+    position: relative;
+    padding-top: 15px;
+}
+
+.bunny .eye {
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    animation: blink 2.5s ease-in-out infinite;
+}
+
+.bunny .eye:first-child {
+    left: 18px;
+}
+
+.bunny .eye:last-child {
+    right: 18px;
+}
+
+.bunny .nose {
+    width: 6px;
+    height: 4px;
+    background: #ffb6c1;
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: noseWiggle 2s ease-in-out infinite;
+}
+
+@keyframes noseWiggle {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.2); }
+}
+
+.bunny .mouth {
+    width: 12px;
+    height: 6px;
+    border: 2px solid #000;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    position: absolute;
+    top: 37px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bunny .bunny-body {
+    width: 55px;
+    height: 65px;
+    background: linear-gradient(145deg, #f8f8ff, #e6e6fa);
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(230, 230, 250, 0.4);
+}
+
+.bunny .arm {
+    width: 18px;
+    height: 35px;
+    background: linear-gradient(145deg, #f8f8ff, #e6e6fa);
+    border-radius: 10px;
+    position: absolute;
+    top: 8px;
+    animation: bunnyArmWave 3.5s ease-in-out infinite;
+}
+
+@keyframes bunnyArmWave {
+    0%, 100% { transform: rotate(-25deg); }
+    50% { transform: rotate(-15deg); }
+}
+
+.bunny .arm.left {
+    left: -12px;
+}
+
+.bunny .arm.right {
+    right: -12px;
+    transform: rotate(25deg);
+    animation: bunnyArmWaveRight 3.5s ease-in-out infinite;
+}
+
+@keyframes bunnyArmWaveRight {
+    0%, 100% { transform: rotate(25deg); }
+    50% { transform: rotate(15deg); }
+}
+
+/* Effet de câlin */
+.hug-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    opacity: 0;
+    z-index: 3;
+    filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.8));
+    animation: hugEffectShow 10s ease-in-out 3s infinite;
+}
+
+@keyframes hugEffectShow {
+    0%, 90%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    45%, 55% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
+}
+
+/* Cœurs flottants */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.6));
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Pétales qui tombent */
+.petals-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.falling-petal {
+    position: absolute;
+    background: radial-gradient(ellipse at center, #ffb6c1 0%, #ff69b4 100%);
+    border-radius: 50% 10% 50% 10%;
+    opacity: 0.7;
+    pointer-events: none;
+    filter: blur(0.5px);
+    animation: fallDown 8s linear infinite;
+}
+
+@keyframes fallDown {
+    0% {
+        transform: translateY(-50px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Texte animé */
+.animated-text-container {
+    position: relative;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.romantic-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 400;
+    color: #8b0040;
+    text-align: center;
+    line-height: 1.4;
+    margin: 0;
+    text-shadow: 
+        0 0 20px rgba(255, 182, 193, 0.8),
+        0 0 40px rgba(255, 182, 193, 0.6),
+        0 0 60px rgba(255, 182, 193, 0.4);
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+    animation: textGlow 3s ease-in-out infinite, textPulse 4s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.shimmer-effect {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent 100%
+    );
+    transform: skewX(-20deg);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+.text-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(ellipse at center, rgba(255, 182, 193, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: textGlow 3s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
+}
+
+/* Boutons interactifs */
+.interactive-buttons {
+    position: relative;
+    z-index: 3;
+}
+
+.buttons-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.heart-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 30px;
+    background: linear-gradient(145deg, #ff69b4, #ff1493);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 8px 25px rgba(255, 20, 147, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+    animation: buttonFloat 4s ease-in-out infinite;
+}
+
+@keyframes buttonFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+.heart-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+        0 15px 35px rgba(255, 20, 147, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: buttonHover 0.3s ease-in-out;
+}
+
+@keyframes buttonHover {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-2px) scale(1.02); }
+    100% { transform: translateY(-5px) scale(1.05); }
+}
+
+.heart-button:active {
+    transform: translateY(-2px) scale(0.98);
+    animation: buttonClick 0.2s ease-in-out;
+}
+
+@keyframes buttonClick {
+    0% { transform: translateY(-5px) scale(1.05); }
+    50% { transform: translateY(-1px) scale(0.95); }
+    100% { transform: translateY(-2px) scale(0.98); }
+}
+
+.button-icon {
+    font-size: 30px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.button-text {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+/* Effets spéciaux pour les boutons */
+.explosion-btn {
+    background: linear-gradient(145deg, #ff69b4, #ff1493);
+}
+
+.confetti-btn {
+    background: linear-gradient(145deg, #ff6b6b, #ff4757);
+}
+
+.sparkle-btn {
+    background: linear-gradient(145deg, #ffa500, #ff8c00);
+}
+
+/* Sparkles automatiques */
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #fff 0%, #ffeb3b 50%, transparent 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    animation: sparkleAnimation 2s ease-out forwards;
+}
+
+@keyframes sparkleAnimation {
+    0% { transform: scale(0); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.8; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .plushies-scene {
+        padding: 0 20px;
+    }
+    
+    .buttons-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .heart-button {
+        width: 200px;
+    }
+    
+    .romantic-text {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        gap: 40px;
+    }
+    
+    .plushies-container {
+        height: 200px;
+    }
+    
+    .bear .bear-head,
+    .bunny .bunny-head {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .bear .bear-body,
+    .bunny .bunny-body {
+        width: 45px;
+        height: 55px;
+    }
+}
+    </style>
+    <div id="romantic-page" class="romantic-page">
+        <!-- Fond dégradé animé -->
+        <div class="animated-background"></div>
+        
+        <!-- Particules et effets -->
+        <div id="petals-container" class="petals-container"></div>
+        <div id="hearts-container" class="hearts-container"></div>
+        
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <!-- Peluches animées -->
+            <div class="plushies-container">
+                <div class="plushies-scene">
+                    <!-- Ours en peluche -->
+                    <div id="bear" class="plushie bear">
+                        <div class="plushie-body">
+                            <div class="bear-head">
+                                <div class="bear-ears">
+                                    <div class="ear"></div>
+                                    <div class="ear"></div>
+                                </div>
+                                <div class="bear-face">
+                                    <div class="eye"></div>
+                                    <div class="eye"></div>
+                                    <div class="nose"></div>
+                                    <div class="mouth"></div>
+                                </div>
+                            </div>
+                            <div class="bear-body">
+                                <div class="arm left"></div>
+                                <div class="arm right"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lapin en peluche -->
+                    <div id="bunny" class="plushie bunny">
+                        <div class="plushie-body">
+                            <div class="bunny-head">
+                                <div class="bunny-ears">
+                                    <div class="ear"></div>
+                                    <div class="ear"></div>
+                                </div>
+                                <div class="bunny-face">
+                                    <div class="eye"></div>
+                                    <div class="eye"></div>
+                                    <div class="nose"></div>
+                                    <div class="mouth"></div>
+                                </div>
+                            </div>
+                            <div class="bunny-body">
+                                <div class="arm left"></div>
+                                <div class="arm right"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Effet de câlin -->
+                    <div id="hug-effect" class="hug-effect">💕</div>
+                </div>
+            </div>
+            
+            <!-- Texte de remerciement animé -->
+            <div class="text-container">
+                <div class="animated-text-container">
+                    <h1 id="romantic-text" class="romantic-text">
+                        Merci pour tout ton soutien et ton amour, tu es inestimable pour moi Judith
+                        <div class="shimmer-effect"></div>
+                    </h1>
+                    <div class="text-glow"></div>
+                </div>
+            </div>
+            
+            <!-- Boutons interactifs -->
+            <div class="buttons-container">
+                <div class="interactive-buttons">
+                    <div class="buttons-grid">
+                        <button id="explosion-btn" class="heart-button explosion-btn">
+                            <span class="button-icon">💖</span>
+                            <span class="button-text">Explosion d'Amour</span>
+                        </button>
+
+                        <button id="confetti-btn" class="heart-button confetti-btn">
+                            <span class="button-icon">🎉</span>
+                            <span class="button-text">Confettis Magiques</span>
+                        </button>
+
+                        <button id="sparkle-btn" class="heart-button sparkle-btn">
+                            <span class="button-icon">✨</span>
+                            <span class="button-text">Étincelles d'Étoiles</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="thank-you-text">
+                        Merci, du fond du cœur, pour tout ce que tu as fait pour moi.<br>
+                        Ton soutien, ta présence et ton amour ont illuminé mes jours ,m'ont donnés le sourire , m'ont faire sentir spécial et aimé.<br>
+                        Tu es une âme <span>exceptionnelle</span>, un trésor rare,<br>
+                        et je te serai éternellement reconnaissant.
+                        <span>Je t'adoreeeeeeeeeeeeeeeeee </span><br>
+                        Opppppsss je te deteste du moins hahaahhaaa je blague 
+            </div>
+            <style>@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.thank-you-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    line-height: 1.5;
+    padding: 20px;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 3s ease forwards;
+}
+
+/* Apparition progressive du texte */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Effet scintillant des mots */
+.thank-you-text span {
+    display: inline-block;
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0% { color: #fff; text-shadow: 0 0 5px #fff; }
+    50% { color: #ffe4e1; text-shadow: 0 0 20px #ff69b4; }
+    100% { color: #fff; text-shadow: 0 0 5px #fff; }
+}</style>
+
+        </div>
+        
+        <!-- Overlay lumineux -->
+        <div class="light-overlay"></div>
+    </div>
+
+    <!-- Script avec animations CSS pures -->
+    <script>
+        // Variables globales
+const heartsContainer = document.getElementById('hearts-container');
+const petalsContainer = document.getElementById('petals-container');
+const romanticPage = document.getElementById('romantic-page');
+
+// Initialisation de la page
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page loaded!');
+    
+    // Démarrer les effets de particules
+    startParticleEffects();
+    
+    // Démarrer les étincelles
+    startSparkles();
+    
+    // Configuration des boutons
+    setupButtons();
+});
+
+// Effets de particules
+function startParticleEffects() {
+    // Démarrer les cœurs flottants
+    setInterval(createFloatingHeart, 1200);
+    
+    // Démarrer les pétales qui tombent
+    setInterval(createFallingPetal, 800);
+}
+
+// Créer un cœur flottant
+function createFloatingHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    heart.innerHTML = ['💖', '💝', '💗', '💕', '💘'][Math.floor(Math.random() * 5)];
+    
+    // Position aléatoire de départ
+    const startX = Math.random() * window.innerWidth;
+    
+    heart.style.left = startX + 'px';
+    heart.style.top = 'calc(100vh + 50px)';
+    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+    heart.style.animationDelay = '0s';
+    heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+    
+    heartsContainer.appendChild(heart);
+
+    // Supprimer après animation
+    setTimeout(() => {
+        if (heart.parentNode) {
+            heart.remove();
+        }
+    }, 7000);
+}
+
+// Créer un pétale qui tombe
+function createFallingPetal() {
+    const petal = document.createElement('div');
+    petal.className = 'falling-petal';
+    
+    // Position aléatoire de départ
+    const startX = Math.random() * window.innerWidth;
+    
+    petal.style.left = startX + 'px';
+    petal.style.top = '-50px';
+    petal.style.width = (Math.random() * 8 + 6) + 'px';
+    petal.style.height = (Math.random() * 8 + 6) + 'px';
+    petal.style.animationDuration = (Math.random() * 5 + 6) + 's';
+    petal.style.animationDelay = '0s';
+    
+    petalsContainer.appendChild(petal);
+
+    // Supprimer après animation
+    setTimeout(() => {
+        if (petal.parentNode) {
+            petal.remove();
+        }
+    }, 12000);
+}
+
+// Créer des étincelles scintillantes
+function startSparkles() {
+    const createSparkle = () => {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        romanticPage.appendChild(sparkle);
+
+        // Supprimer après animation
+        setTimeout(() => {
+            if (sparkle.parentNode) {
+                sparkle.remove();
+            }
+        }, 2000);
+    };
+
+    // Créer des étincelles toutes les 600ms
+    setInterval(createSparkle, 600);
+}
+
+// Configuration des boutons
+function setupButtons() {
+    const explosionBtn = document.getElementById('explosion-btn');
+    const confettiBtn = document.getElementById('confetti-btn');
+    const sparkleBtn = document.getElementById('sparkle-btn');
+
+    if (explosionBtn) {
+        explosionBtn.addEventListener('click', (e) => createHeartExplosion(e, explosionBtn));
+    }
+    if (confettiBtn) {
+        confettiBtn.addEventListener('click', (e) => createConfettiExplosion(e, confettiBtn));
+    }
+    if (sparkleBtn) {
+        sparkleBtn.addEventListener('click', (e) => createSparkleEffect(e, sparkleBtn));
+    }
+}
+
+// Explosion de cœurs (Version CSS)
+function createHeartExplosion(e, button) {
+    const rect = button.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    // Créer plusieurs cœurs pour l'explosion
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = '💖';
+        heart.style.position = 'fixed';
+        heart.style.left = centerX + 'px';
+        heart.style.top = centerY + 'px';
+        heart.style.fontSize = '20px';
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '1000';
+        heart.style.transition = 'all 1.5s ease-out';
+        
+        document.body.appendChild(heart);
+
+        // Animation d'explosion avec CSS
+        setTimeout(() => {
+            const angle = (i / 15) * Math.PI * 2;
+            const distance = 100 + Math.random() * 150;
+            const targetX = Math.cos(angle) * distance;
+            const targetY = Math.sin(angle) * distance;
+
+            heart.style.transform = `translate(${targetX}px, ${targetY}px) scale(${Math.random() * 1.5 + 0.5}) rotate(${Math.random() * 360}deg)`;
+            heart.style.opacity = '0';
+        }, 50);
+
+        // Supprimer après animation
+        setTimeout(() => heart.remove(), 2000);
+    }
+
+    // Animation du bouton
+    button.style.transform = 'scale(1.2) translateY(-2px)';
+    setTimeout(() => {
+        button.style.transform = '';
+    }, 200);
+}
+
+// Explosion de confettis (Version CSS)
+function createConfettiExplosion(e, button) {
+    const rect = button.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const confettiColors = ['#ff69b4', '#ff1493', '#ff6b6b', '#ffa500', '#ffb6c1'];
+    
+    // Créer des confettis
+    for (let i = 0; i < 25; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'fixed';
+        confetti.style.left = centerX + 'px';
+        confetti.style.top = centerY + 'px';
+        confetti.style.width = '8px';
+        confetti.style.height = '8px';
+        confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        confetti.style.pointerEvents = 'none';
+        confetti.style.zIndex = '1000';
+        confetti.style.transition = 'all 2s ease-out';
+        
+        document.body.appendChild(confetti);
+
+        // Animation des confettis avec gravité
+        setTimeout(() => {
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 150 + Math.random() * 200;
+            const targetX = Math.cos(angle) * distance;
+            const targetY = Math.sin(angle) * distance + 300; // Effet de gravité
+
+            confetti.style.transform = `translate(${targetX}px, ${targetY}px) rotate(${Math.random() * 720}deg)`;
+            confetti.style.opacity = '0';
+        }, 50);
+
+        // Supprimer après animation
+        setTimeout(() => confetti.remove(), 2500);
+    }
+
+    // Animation du bouton
+    button.style.transform = 'rotate(5deg) scale(1.1)';
+    setTimeout(() => {
+        button.style.transform = 'rotate(-5deg) scale(1.1)';
+    }, 100);
+    setTimeout(() => {
+        button.style.transform = '';
+    }, 200);
+}
+
+// Effet d'étincelles (Version CSS)
+function createSparkleEffect(e, button) {
+    const rect = button.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    // Créer des étincelles
+    for (let i = 0; i < 10; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.innerHTML = '✨';
+        sparkle.style.position = 'fixed';
+        sparkle.style.left = centerX + 'px';
+        sparkle.style.top = centerY + 'px';
+        sparkle.style.fontSize = '16px';
+        sparkle.style.pointerEvents = 'none';
+        sparkle.style.zIndex = '1000';
+        sparkle.style.transition = 'all 1s ease-out';
+        
+        document.body.appendChild(sparkle);
+
+        // Animation des étincelles
+        setTimeout(() => {
+            const angle = (i / 10) * Math.PI * 2;
+            const distance = 80;
+            const targetX = Math.cos(angle) * distance;
+            const targetY = Math.sin(angle) * distance;
+
+            sparkle.style.transform = `translate(${targetX}px, ${targetY}px) scale(1.5)`;
+            sparkle.style.opacity = '0';
+        }, 50);
+
+        // Supprimer après animation
+        setTimeout(() => sparkle.remove(), 1500);
+    }
+
+    // Animation du bouton avec effet de brillance
+    button.style.filter = 'brightness(1.5) saturate(1.3)';
+    setTimeout(() => {
+        button.style.filter = '';
+    }, 300);
+}
+
+// Ajouter un effet de particules au scroll (bonus)
+let lastScrollY = 0;
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    if (Math.abs(currentScrollY - lastScrollY) > 50) {
+        createFloatingHeart();
+        lastScrollY = currentScrollY;
+    }
+});
+    </script>
+</body>
+</html>
